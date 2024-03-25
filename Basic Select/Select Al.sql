@@ -8,4 +8,5 @@ https://www.hackerrank.com/challenges/select-all-sql/problem?isFullScreen=true
 
 */
 
+//code starts here
 SELECT * FROM CITY ;
