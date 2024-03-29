@@ -1,0 +1,10 @@
+/*
+Average Population
+
+Query the average population for all cities in CITY, rounded down to the nearest integer.
+
+full question here:
+https://www.hackerrank.com/challenges/average-population/problem?isFullScreen=true
+*/
+
+SELECT ROUND(AVG(POPULATION)) FROM CITY;
