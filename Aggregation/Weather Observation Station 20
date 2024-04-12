@@ -1,0 +1,30 @@
+/*
+Weather Observation Station 20
+
+A median is defined as a number separating the higher half of a data set from the lower half. Query the median of the Northern Latitudes (LAT_N) from STATION and round your answer to  4 decimal places. 
+
+full question here:
+https://www.hackerrank.com/challenges/weather-observation-station-20/problem?isFullScreen=true
+
+REFERENCE:
+https://www.sisense.com/blog/medians-in-sql/
+
+ERROR:
+ERROR 1248 (42000) at line 12: Every derived table must have its own alias
+
+ANSWER BY CHATGPT:
+pertains to the requirement in MySQL that any subquery used as a derived table in the FROM clause must have an alias assigned to it. This alias allows you to refer to the derived table within the outer query, enabling MySQL to understand the structure of the derived table.
+
+*/
+-- Set two variables, one for the row count and one to act as the row_id
+SET @ct := (SELECT COUNT(1) FROM STATION);
+SET @row_id := 0;
+
+-- Calculate the median latitude
+SELECT ROUND(AVG(LAT_N),4) AS median
+FROM (
+    SELECT *, (@row_id := @row_id + 1) AS rn
+    FROM STATION
+    ORDER BY LAT_N
+) AS station_with_row_number
+WHERE rn BETWEEN @ct/2.0 AND @ct/2.0 + 1;
