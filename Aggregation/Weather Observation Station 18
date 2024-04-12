@@ -1,0 +1,13 @@
+/*
+Weather Observation Station 18
+
+Manhattan distance
+
+Definition: The distance between two points measured along axes at right angles. In a plane with p1 at (x1, y1) and p2 at (x2, y2), it is |x1 - x2| + |y1 - y2|.
+
+full question here:
+https://www.hackerrank.com/challenges/weather-observation-station-18/problem?isFullScreen=true
+*/
+
+SELECT ROUND((ABS(MIN(LAT_N)-MAX(LAT_N)) + ABS(MIN(LONG_W)-MAX(LONG_W))),4)
+FROM STATION;
